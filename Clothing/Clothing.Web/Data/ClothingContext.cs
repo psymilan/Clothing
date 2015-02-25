@@ -36,5 +36,7 @@ namespace Clothing.Web.Data
             .WithMany()
             .HasForeignKey(u => u.CustomerId).WillCascadeOnDelete(true);
         }
+
+        public System.Data.Entity.DbSet<Clothing.Web.DataModels.Blog> Blogs { get; set; }
     }
 }

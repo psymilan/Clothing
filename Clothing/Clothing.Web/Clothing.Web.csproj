@@ -176,9 +176,12 @@
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Models\ProductModels.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\CatalogueController.cs" />
+    <Compile Include="Controllers\LooksController.cs" />
     <Compile Include="DataModels\Address.cs" />
+    <Compile Include="DataModels\Blog.cs" />
     <Compile Include="DataModels\ItemInOrder.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\ProductImage.cs" />
@@ -291,7 +294,9 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Catalogue\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Looks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

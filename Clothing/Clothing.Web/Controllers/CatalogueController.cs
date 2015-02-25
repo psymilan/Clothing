@@ -7,15 +7,15 @@ using Clothing.Web.DTOs;
 
 namespace Clothing.Web.Controllers
 {
-    public class ShopController : Controller
+    public class CatalogueController : Controller
     {
-        private IClothingRepository repository;
-        public ShopController(IClothingRepository repo)
+        private readonly IClothingRepository repository;
+        public CatalogueController(IClothingRepository repo)
         {
             repository = repo;
         }
         //
-        // GET: /Shop/
+        // GET: /Catalogue/
         public ActionResult Index()
         {
             var images = repository.ProductImages.Where(i =>  i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
