@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@if (TempData["notice"] != null)
+{
+    <h3>@TempData["notice"]</h3>
+}
+
+<br />
+<h2>Add product</h2>
+
+@Html.ActionLink("Add new product", "AddProduct", "AdminHome")
+

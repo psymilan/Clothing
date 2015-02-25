@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Clothing.Web.DTOs.ProductDto>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 pad">
+            <h2>@item.Name</h2>
+            <a class="thumbnail"><img alt="some image" src="~/ProductImages/@(item.ImagePaths.First())" /></a>
+            <p>
+                @item.Description
+            </p>
+            <p><a class="btn btn-default addToCart" data-id=@item.Id>Add to cart &raquo;</a></p>
+        </div>
+    }
+</div>
+<script>
+    $(document).ready(function() {
+        $('#addToCart').click(function() {
+            var id = $(this).data('id').val();
+
+            $.post('/ShoppingCart/AddItem', id, function(data) {
+
+            });
+        });
+    });
+</script>
