@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using Clothing.Web.DataModels;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Clothing.Web.Data
 {
@@ -21,22 +16,22 @@ namespace Clothing.Web.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<UsersInRole> UsersInRoles { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<ItemInOrder> ItemsInOrder { get; set; }
+        public DbSet<ItemInOrder> ItemInOrders { get; set; }
 
         public DbSet<ProductImage> ProductImages { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Customer>().HasMany(c => c.Addresses).WithRequired().WillCascadeOnDelete(true);
-            modelBuilder.Entity<Customer>().HasMany(c => c.CreditCards).WithRequired().WillCascadeOnDelete(true);
-            modelBuilder.Entity<Customer>().HasMany(c => c.Orders).WithRequired().WillCascadeOnDelete(false);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Customer>().HasMany(c => c.Addresses).WithRequired().WillCascadeOnDelete(true);
+        //    modelBuilder.Entity<Customer>().HasMany(c => c.CreditCards).WithRequired().WillCascadeOnDelete(true);
+        //    modelBuilder.Entity<Customer>().HasMany(c => c.Orders).WithRequired().WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Order>()
-            .HasRequired(a => a.Address)
-            .WithMany()
-            .HasForeignKey(u => u.CustomerId).WillCascadeOnDelete(true);
-        }
+        //    modelBuilder.Entity<Order>()
+        //    .HasRequired(a => a.Address)
+        //    .WithMany()
+        //    .HasForeignKey(u => u.CustomerId).WillCascadeOnDelete(true);
+        //}
 
-        public System.Data.Entity.DbSet<Clothing.Web.DataModels.Blog> Blogs { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }

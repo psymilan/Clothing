@@ -18,7 +18,7 @@ namespace Clothing.Web.Controllers
         // GET: /Catalogue/
         public ActionResult Index()
         {
-            var images = repository.ProductImages.Where(i =>  i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
+            var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
             var products = repository.Products.ToList().Select(p => new ProductDto
             {
                 Description = p.Description,
@@ -33,6 +33,33 @@ namespace Clothing.Web.Controllers
             return View(products);
         }
 
+        public int AddItem(int id)
+        {
+            var userId = int.Parse(User.Identity.Name);
+            var product = repository.Products.SingleOrDefault(p => p.Id == id);
+            var itemExist = repository.ItemInOrders.SingleOrDefault(i => i.CustomerId == userId && i.ProductId == id);
+            if (itemExist != null)
+            {
+                itemExist.Quantity++;
+            }
+            else
+            {
+                var item = new ItemInOrder
+                {
+                    CustomerId = userId,
+                    Price = product.Price,
+                    ProductId = id,
+                    Quantity = 1,
+                    ImagePath = "asDasd"
+
+                };
+                repository.ItemInOrders.Add(item);
+            }
+            repository.SaveChanges();
+
+            var count = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
+            return count;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

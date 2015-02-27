@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Clothing.Web.Data;
 
 namespace Clothing.Web.DataModels
 {
@@ -20,6 +19,7 @@ namespace Clothing.Web.DataModels
         public virtual ICollection<CreditCard> CreditCards { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<ItemInOrder> ItemInOrders { get; set; }
 
     }
 }

@@ -11,8 +11,9 @@ namespace Clothing.Web.DataModels
         public DateTime DateCreated { get;set; }
         public decimal TotalPrice { get; set; }
 
-        public Address Address { get; set; }
+        public virtual Address Address { get; set; }
+        public virtual Customer Customer { get; set; }
 
-        public ICollection<ItemInOrder> Items { get; set; }
+        public virtual ICollection<ItemInOrder> ItemInOrders { get; set; }
     }
 }

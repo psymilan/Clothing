@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -13,7 +12,6 @@
     <script src="~/Scripts/jquery.cycle.all.js"></script>
     <style>
         body {
-
             padding: 72px 0 0 0;
             margin: 0 auto;
             font-family: Calibri, sans-serif;
@@ -34,22 +32,31 @@
 
             #nav a {
                 display: inline-block;
-
             }
-    </style>
 
+        .floatme {
+            text-align: right;
+            margin-right: 20px;
+        }
+        .leftMe {
+            text-align: left;
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body>
     <div>
         <div class="navbar navbar-inverse navbar-fixed-top" style="min-height: 60px;">
-
             <div class="container-fluid">
                 <nav class="navbar">
                     <div class="navbar-fixed-top">
                         @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-                        <br />
-                        <br />
+                        <div id="counter" class="floatme navbar-brand">0</div>
+                        <div id="counter" class="leftMe navbar-brand">@User.Identity.Name</div>
+                        @Html.ActionLink("Shopping cart!__", "Index", "Checkout", null, new { @class = "navbar-brand floatme" })
 
+                        <br />
+                        <br />
                         <div class="navbar-collapse">
                             <ul id="nav" class="nav navbar-nav">
                                 <li>@Html.ActionLink("About", "About", "Home")</li>
@@ -64,7 +71,6 @@
                 </nav>
             </div>
         </div>
-
         <div>
             @*<p style="float:right;"><a class="btn btn-default" data-id=@item.Id>shopping cart <span id="numOfItems">0</span> items</a></p>*@
             @RenderBody()
@@ -77,7 +83,6 @@
                         <span class="tagline">Hudba. Vyladěná pro vás.</span>
                     </a>
                 </div>
-
                 <ul class="footer _link-col">
                     <li>
                         <a class="footer _link js-track-click" data-event-name="Sign Up Clicked" data-event-location="Footer" href="/account/signup/" style="-webkit-user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
@@ -90,19 +95,16 @@
                         </a>
                     </li>
                 </ul>
-
                 <ul class="footer _link-col clear">
                     <li><a class="footer _link" href="/about/">O aplikaci</a></li>
                     <li><a class="footer _link" href="/artistprogram/">Interpreti</a></li>
                     <li><a class="footer _link" href="/developers/">Vývojáři</a></li>
                 </ul>
-
                 <ul class="footer _link-col">
                     <li><a class="footer _link" href="/careers/">Zaměstnání</a></li>
                     <li><a class="footer _link" href="//help.rdio.com">Nápověda</a></li>
                     <li><a class="footer _link" href="/legal/terms-of-service/">Právní informace</a></li>
                 </ul>
-
                 <ul class="footer _link-col clear">
                     <li><a class="footer _link" href="//blog.rdio.com">Blog</a></li>
                     <li><a class="footer _link" href="http://twitter.com/Rdio">Twitter</a></li>

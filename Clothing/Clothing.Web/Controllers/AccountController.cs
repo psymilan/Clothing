@@ -50,16 +50,13 @@ namespace Clothing.Web.Controllers
                 FirstName = model.FirstName,
                 LastName = model.LastName
             };
-            //user.Roles.Add(repository.Roles.Single(Role.IsCustomer));
 
             repository.Customers.Add(user);
             repository.SaveChanges();
 
-            FormsAuthentication.SetAuthCookie(user.FirstName.ToString(CultureInfo.InvariantCulture), false);
+            FormsAuthentication.SetAuthCookie(user.Id.ToString(), false);
 
             SetLoginCookies(user);
-
-
             return RedirectToAction("Index", "Home");
 
         }
@@ -71,7 +68,7 @@ namespace Clothing.Web.Controllers
             Customer customer;
             if (ModelState.IsValid && VerifyUserLogin(model.Email, model.Password, out customer))
             {
-                FormsAuthentication.SetAuthCookie(customer.FirstName.ToString(CultureInfo.InvariantCulture), model.RememberMe);
+                FormsAuthentication.SetAuthCookie(customer.Id.ToString(), model.RememberMe);
                 SetLoginCookies(customer);
 
             }
@@ -97,7 +94,7 @@ namespace Clothing.Web.Controllers
             return false;
 
         }
-        //        // GET: /Account/Register
+        // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {

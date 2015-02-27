@@ -21,7 +21,7 @@ namespace Clothing.Web.Data
 
         public IEntitySet<ProductImage> ProductImages  { get; private set; }
 
-        public IEntitySet<ItemInOrder> ItemsInOrder { get; private set; }
+        public IEntitySet<ItemInOrder> ItemInOrders { get; private set; }
 
         public ClothingRepository(ClothingContext ctx)
         {
@@ -41,7 +41,7 @@ namespace Clothing.Web.Data
 
             ProductImages = new EntitySet<ProductImage>(ctx);
 
-            ItemsInOrder = new EntitySet<ItemInOrder>(ctx);
+            ItemInOrders = new EntitySet<ItemInOrder>(ctx);
 
         }
 
@@ -60,8 +60,5 @@ namespace Clothing.Web.Data
         {
             return _ctx.Entry(entity);
         }
-
-
-
     }
 }

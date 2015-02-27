@@ -2,3 +2,7 @@
 \\psf\Dropbox\ShirinClothing Project\Clothing\Clothing.Helpers\bin\Debug\Clothing.Helpers.pdb
 \\psf\Dropbox\ShirinClothing Project\Clothing\Clothing.Helpers\obj\Debug\Clothing.Helpers.dll
 \\psf\Dropbox\ShirinClothing Project\Clothing\Clothing.Helpers\obj\Debug\Clothing.Helpers.pdb
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Helpers\bin\Debug\Clothing.Helpers.dll
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Helpers\bin\Debug\Clothing.Helpers.pdb
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Helpers\obj\Debug\Clothing.Helpers.dll
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Helpers\obj\Debug\Clothing.Helpers.pdb

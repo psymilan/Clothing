@@ -123,6 +123,6 @@
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.Owin.Security.Google.xml
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.Owin.Security.Twitter.xml
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-\\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.dll
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.pdb
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.csprojResolveAssemblyReference.cache

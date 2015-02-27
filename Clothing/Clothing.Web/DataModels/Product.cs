@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Clothing.Web.DataModels
 {
@@ -14,5 +15,7 @@ namespace Clothing.Web.DataModels
 
         [DisplayName("Quantity available")]
         public int QuantityAvailable { get; set; }
+
+        public virtual ICollection<ItemInOrder> ItemInOrders { get; set; }
     }
 }

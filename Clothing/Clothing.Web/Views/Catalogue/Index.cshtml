@@ -14,17 +14,20 @@
             <p>
                 @item.Description
             </p>
-            <p><a class="btn btn-default addToCart" data-id=@item.Id>Add to cart &raquo;</a></p>
+            <p>
+                @item.Price
+            </p>
+            <p><a id="addToCart" class="btn btn-default" data-id=@item.Id>Add to cart &raquo;</a></p>
         </div>
     }
 </div>
 <script>
     $(document).ready(function() {
         $('#addToCart').click(function() {
-            var id = $(this).data('id').val();
+            var id = $(this).data('id');
 
-            $.post('/ShoppingCart/AddItem', id, function(data) {
-
+            $.get('/Catalogue/AddItem?id='+id, function(data) {
+                $('#counter').html(data);
             });
         });
     });

@@ -12,6 +12,7 @@ namespace Clothing.Web.Data
         IEntitySet<UsersInRole> UsersInRoles { get; }
         IEntitySet<Product> Products { get; }
         IEntitySet<ProductImage> ProductImages { get; }
+        IEntitySet<ItemInOrder> ItemInOrders { get; }
 
         void SaveChanges();
         void Dispose();
