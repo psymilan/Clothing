@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Clothing.Helpers.AccountHelpers;
+using Clothing.Web.AccountHelpers;
 using Clothing.Web.Data;
 using Clothing.Web.DataModels;
 using Clothing.Web.Models;

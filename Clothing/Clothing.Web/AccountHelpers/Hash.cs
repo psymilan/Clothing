@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Web.Security;
 
-namespace Clothing.Helpers.AccountHelpers
+namespace Clothing.Web.AccountHelpers
 {
     public static class Crypter
     {

@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Clothing.Helpers.AccountHelpers
+namespace Clothing.Web.AccountHelpers
 {
     public class Password
     {

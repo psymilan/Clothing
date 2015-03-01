@@ -166,6 +166,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountHelpers\Hash.cs" />
+    <Compile Include="AccountHelpers\Password.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -309,12 +311,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Clothing.Helpers\Clothing.Helpers.csproj">
-      <Project>{6dca8dae-b7ec-4bf9-8345-a05422b8afd3}</Project>
-      <Name>Clothing.Helpers</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
