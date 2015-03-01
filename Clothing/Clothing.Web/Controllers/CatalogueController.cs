@@ -18,6 +18,12 @@ namespace Clothing.Web.Controllers
         // GET: /Catalogue/
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = int.Parse(User.Identity.Name);
+                var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
+                ViewBag.ItemCount = itemsInOrder;
+            }
             var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
             var products = repository.Products.ToList().Select(p => new ProductDto
             {
@@ -35,31 +41,62 @@ namespace Clothing.Web.Controllers
 
         public int AddItem(int id)
         {
-            var userId = int.Parse(User.Identity.Name);
-            var product = repository.Products.SingleOrDefault(p => p.Id == id);
-            var itemExist = repository.ItemInOrders.SingleOrDefault(i => i.CustomerId == userId && i.ProductId == id);
-            if (itemExist != null)
+            int count = 0;
+            if (User.Identity.IsAuthenticated)
             {
-                itemExist.Quantity++;
-            }
-            else
-            {
-                var item = new ItemInOrder
+                var userId = int.Parse(User.Identity.Name);
+
+                var product = repository.Products.SingleOrDefault(p => p.Id == id);
+                var itemExist = repository.ItemInOrders.SingleOrDefault(i => i.CustomerId == userId && i.ProductId == id);
+                if (itemExist != null)
                 {
-                    CustomerId = userId,
-                    Price = product.Price,
-                    ProductId = id,
-                    Quantity = 1,
-                    ImagePath = "asDasd"
+                    itemExist.Quantity++;
+                }
+                else
+                {
+                    var item = new ItemInOrder
+                    {
+                        CustomerId = userId,
+                        Price = product.Price,
+                        ProductId = id,
+                        Quantity = 1,
+                        ImagePath = "asDasd"
 
-                };
-                repository.ItemInOrders.Add(item);
+                    };
+                    repository.ItemInOrders.Add(item);
+                }
+                repository.SaveChanges();
+
+                count = repository.ItemInOrders.Where(i => i.CustomerId == userId && i.OrderId == null).Sum(o => o.Quantity);
             }
-            repository.SaveChanges();
-
-            var count = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
             return count;
         }
+
+        public ActionResult Detail(int id)
+        {
+            var product = repository.Products.SingleOrDefault(p => p.Id == id);
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = int.Parse(User.Identity.Name);
+                var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
+                ViewBag.ItemCount = itemsInOrder;
+            }
+            var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
+            var productDto = new ProductDto
+            {
+                Description = product.Description,
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                QuantityAvailable = product.QuantityAvailable,
+                ShortDescription = product.ShortDescription,
+                ImagePaths = images.Where(i => i.StartsWith(product.Id.ToString(CultureInfo.InvariantCulture)))
+            };
+
+            return View(productDto);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

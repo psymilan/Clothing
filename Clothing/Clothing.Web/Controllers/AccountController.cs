@@ -3,7 +3,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Clothing.Helpers;
 using Clothing.Helpers.AccountHelpers;
 using Clothing.Web.Data;
 using Clothing.Web.DataModels;
@@ -54,7 +53,7 @@ namespace Clothing.Web.Controllers
             repository.Customers.Add(user);
             repository.SaveChanges();
 
-            FormsAuthentication.SetAuthCookie(user.Id.ToString(), false);
+            FormsAuthentication.SetAuthCookie(user.Id.ToString(CultureInfo.InvariantCulture), false);
 
             SetLoginCookies(user);
             return RedirectToAction("Index", "Home");
@@ -68,7 +67,7 @@ namespace Clothing.Web.Controllers
             Customer customer;
             if (ModelState.IsValid && VerifyUserLogin(model.Email, model.Password, out customer))
             {
-                FormsAuthentication.SetAuthCookie(customer.Id.ToString(), model.RememberMe);
+                FormsAuthentication.SetAuthCookie(customer.Id.ToString(CultureInfo.InvariantCulture), model.RememberMe);
                 SetLoginCookies(customer);
 
             }
@@ -101,8 +100,7 @@ namespace Clothing.Web.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

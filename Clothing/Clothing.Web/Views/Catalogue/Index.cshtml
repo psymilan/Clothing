@@ -10,14 +10,15 @@
     {
         <div class="col-md-4 pad">
             <h2>@item.Name</h2>
-            <a class="thumbnail"><img alt="some image" src="~/ProductImages/@(item.ImagePaths.First())" /></a>
+            <a class="thumbnail" href="/Catalogue/Detail/@item.Id"><img alt="some image" src="~/ProductImages/@(item.ImagePaths.First())" /></a>
             <p>
                 @item.Description
             </p>
             <p>
                 @item.Price
             </p>
-            <p><a id="addToCart" class="btn btn-default" data-id=@item.Id>Add to cart &raquo;</a></p>
+            @*<p><a id="addToCart" class="btn btn-default" data-id=@item.Id>Add to cart &raquo;</a></p>*@
+            @Html.ActionLink("Detail", "Detail", "Catalogue", new { id = item.Id }, null)
         </div>
     }
 </div>

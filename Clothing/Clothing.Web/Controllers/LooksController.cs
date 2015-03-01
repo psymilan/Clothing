@@ -18,6 +18,12 @@ namespace Clothing.Web.Controllers
         // GET: /Looks/
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = int.Parse(User.Identity.Name);
+                var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
+                ViewBag.ItemCount = itemsInOrder;
+            }
             var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Looks).Select(i => i.ImageName).ToArray();
             var products = repository.Products.ToList().Select(p => new ProductDto
             {
@@ -41,7 +47,5 @@ namespace Clothing.Web.Controllers
             }
             base.Dispose(disposing);
         }
-
     }
-
 }

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Clothing.Web.Data;
 using Clothing.Web.DataModels;
 
@@ -15,6 +16,12 @@ namespace Clothing.Web.Controllers
         // GET: /Blog/
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = int.Parse(User.Identity.Name);
+                var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
+                ViewBag.ItemCount = itemsInOrder;
+            }
             var blog = new Blog
             {
                 Id = 1,

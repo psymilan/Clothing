@@ -38,6 +38,7 @@
             text-align: right;
             margin-right: 20px;
         }
+
         .leftMe {
             text-align: left;
             margin-right: 20px;
@@ -51,9 +52,17 @@
                 <nav class="navbar">
                     <div class="navbar-fixed-top">
                         @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-                        <div id="counter" class="floatme navbar-brand">0</div>
+                        
                         <div id="counter" class="leftMe navbar-brand">@User.Identity.Name</div>
-                        @Html.ActionLink("Shopping cart!__", "Index", "Checkout", null, new { @class = "navbar-brand floatme" })
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div id="counter" class="floatme navbar-brand">@ViewBag.ItemCount</div>
+                            @Html.ActionLink("Shopping cart!__", "Index", "Checkout", null, new { @class = "navbar-brand floatme" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "navbar-brand floatme" })
+                        }
 
                         <br />
                         <br />
@@ -64,6 +73,10 @@
                                 <li>@Html.ActionLink("Catalogue", "Index", "Catalogue")</li>
                                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                 <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                  <li>@Html.ActionLink("Log off", "LogOff", "Account")</li>
+                                }
                             </ul>
                         </div>
                         @*@Html.Partial("_LoginPartial")*@
@@ -72,7 +85,6 @@
             </div>
         </div>
         <div>
-            @*<p style="float:right;"><a class="btn btn-default" data-id=@item.Id>shopping cart <span id="numOfItems">0</span> items</a></p>*@
             @RenderBody()
         </div>
         <footer class="footer _container row">

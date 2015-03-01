@@ -10,6 +10,7 @@ namespace Clothing.Web.DataModels
         public string ImageName { get; set; }
         public string FullPath { get; set; }
         public int ImageCategory { get; set; }
+        public Product Product { get; set; }
 
         public ProductImage CreateImage(int productId, string fullPath, int imageCategory)
         {

@@ -17,5 +17,6 @@ namespace Clothing.Web.DataModels
         public int QuantityAvailable { get; set; }
 
         public virtual ICollection<ItemInOrder> ItemInOrders { get; set; }
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
     }
 }
