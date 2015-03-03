@@ -234,7 +234,6 @@
     <Content Include="Content\Template\images\p8.jpg" />
     <Content Include="Content\Template\images\p9.jpg" />
     <Content Include="Content\Template\images\social.png" />
-    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery.cycle.all.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -310,7 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\ProductImages\" />
     <Folder Include="ProductImages\" />
   </ItemGroup>
   <ItemGroup>
