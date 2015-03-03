@@ -12,7 +12,7 @@ using Clothing.Web.Data;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
-    [Authorize(Users = "Milance")]
+
     public class ProductsController : Controller
     {
         private readonly IClothingRepository repository;

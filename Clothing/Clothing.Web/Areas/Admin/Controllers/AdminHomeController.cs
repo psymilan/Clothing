@@ -6,7 +6,7 @@ using Clothing.Web.DataModels;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
-    [Authorize(Users = "Milance")]
+
     public class AdminHomeController : Controller
     {
 
