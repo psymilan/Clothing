@@ -1,17 +1,40 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="contact section" id="section-5">
+    <div class="container">
+        <h3 class="head">Contact Us</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list">
+                    <li class="list1">
+                        <i class="icon1"> </i><p class="address"><span class="phone">Phone :</span> +420 111 222 333</p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1">
+                        <i class="icon2"> </i><p class="address"><span class="phone">Email :</span><span class="email"><a href="mailto:info@shirin.com"> info@shirin.com</a></span></p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1">
+                        <i class="icon3"> </i><p class="address"><span class="phone">Fax :</span> +420 222 333 444</p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1 last">
+                        <i class="icon4"> </i><p class="address"><span class="phone">Address :</span> Kamycka 1072, Praha 16521, Czech Republic</p>
+                        <div class="clearfix"> </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <form method="post" action="contact-post.html">
+                        <input type="text" class="textbox" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                        <input type="text" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                        <textarea value="Message" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                        <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Send"></label>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

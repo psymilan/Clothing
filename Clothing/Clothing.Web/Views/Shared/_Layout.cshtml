@@ -1,129 +1,71 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Styles.Render("~/Content/css")
-    @RenderSection("scripts", required: false)
-    <script src="~/Scripts/jquery.cycle.all.js"></script>
-    <style>
-        body {
-            padding: 72px 0 0 0;
-            margin: 0 auto;
-            font-family: Calibri, sans-serif;
-        }
-
-        #nav {
-            border-width: 1px 0;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            BACKGROUND-COLOR: BLACK;
-        }
-
-            #nav li {
-                display: inline;
-            }
-
-            #nav a {
-                display: inline-block;
-            }
-
-        .floatme {
-            text-align: right;
-            margin-right: 20px;
-        }
-
-        .leftMe {
-            text-align: left;
-            margin-right: 20px;
-        }
-    </style>
+    <title>@ViewBag.Title - SHIRIN VAHIDI Clothing</title>
+    <link href="~/Content/Template/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/Template/css/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.3.js"></script>
+    <link href="~/Content/Template/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <script src="~/Scripts/jquery.magnific-popup.js" type="text/javascript"></script>
+    <link href="~/Content/Template/css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        });
+    </script>
 </head>
 <body>
-    <div>
-        <div class="navbar navbar-inverse navbar-fixed-top" style="min-height: 60px;">
-            <div class="container-fluid">
-                <nav class="navbar">
-                    <div class="navbar-fixed-top">
-                        @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-                        
-                        <div id="counter" class="leftMe navbar-brand">@User.Identity.Name</div>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <div id="counter" class="floatme navbar-brand">@ViewBag.ItemCount</div>
-                            @Html.ActionLink("Shopping cart!__", "Index", "Checkout", null, new { @class = "navbar-brand floatme" })
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "navbar-brand floatme" })
-                        }
-
-                        <br />
-                        <br />
-                        <div class="navbar-collapse">
-                            <ul id="nav" class="nav navbar-nav">
-                                <li>@Html.ActionLink("About", "About", "Home")</li>
-                                <li>@Html.ActionLink("Looks", "Index", "Looks")</li>
-                                <li>@Html.ActionLink("Catalogue", "Index", "Catalogue")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                  <li>@Html.ActionLink("Log off", "LogOff", "Account")</li>
-                                }
-                            </ul>
-                        </div>
-                        @*@Html.Partial("_LoginPartial")*@
-                    </div>
-                </nav>
+    <div class="header_top">
+        <div class="container">
+            <div class="logo">
+                <a href="/Home/Index"><img src="~/Content/Template/images/logo.png" alt=""></a>
             </div>
-        </div>
-        <div>
-            @RenderBody()
-        </div>
-        <footer class="footer _container row">
-            <div class="col -width-whole">
-                <div class="footer _link-col -logo">
-                    <a class="footer _link" href="/">
-                        <span class="icon -rdio -top">Rdio</span>
-                        <span class="tagline">Hudba. Vyladěná pro vás.</span>
-                    </a>
-                </div>
-                <ul class="footer _link-col">
-                    <li>
-                        <a class="footer _link js-track-click" data-event-name="Sign Up Clicked" data-event-location="Footer" href="/account/signup/" style="-webkit-user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            Registrace
-                        </a>
-                    </li>
-                    <li>
-                        <a class="footer _link js-track-click" data-event-name="Log In Clicked" data-event-location="Footer" href="/account/signin/" style="-webkit-user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            Přihlásit se
-                        </a>
-                    </li>
-                </ul>
-                <ul class="footer _link-col clear">
-                    <li><a class="footer _link" href="/about/">O aplikaci</a></li>
-                    <li><a class="footer _link" href="/artistprogram/">Interpreti</a></li>
-                    <li><a class="footer _link" href="/developers/">Vývojáři</a></li>
-                </ul>
-                <ul class="footer _link-col">
-                    <li><a class="footer _link" href="/careers/">Zaměstnání</a></li>
-                    <li><a class="footer _link" href="//help.rdio.com">Nápověda</a></li>
-                    <li><a class="footer _link" href="/legal/terms-of-service/">Právní informace</a></li>
-                </ul>
-                <ul class="footer _link-col clear">
-                    <li><a class="footer _link" href="//blog.rdio.com">Blog</a></li>
-                    <li><a class="footer _link" href="http://twitter.com/Rdio">Twitter</a></li>
-                    <li><a class="footer _link" href="http://www.facebook.com/Rdio">Facebook</a></li>
+            <div class="cssmenu">
+                <ul id="nav">
+                    <li class="current"><a href="/Home/Index">Home</a></li>
+                    <li><a href="/Home/About">About Us</a></li>
+                    <li><a href="/Catalogue/Index">Latest Collection</a></li>
+                    <li><a href="/Home/Contact">Contact Us</a></li>
+                    <li><a href="/Admin/AdminHome">Admin</a></li>
                 </ul>
             </div>
-        </footer>
+            <div class="clearfix"> </div>
+        </div>
     </div>
+    <br />
+    @RenderBody()
+    <script src="~/Scripts/jquery.wmuSlider.js"></script>
+    <script>
+        $('.example1').wmuSlider();
+    </script>
+
+    <div class="footer_bottom">
+
+        <div class="container">
+            <p class="copy">&copy; 2014 Damir Pirija </p>
+            <ul class="social">
+                <li><a href=""> <i class="fb"> </i> </a></li>
+                <li><a href=""><i class="rss"> </i> </a></li>
+                <li><a href=""><i class="tw"> </i> </a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery.scrollTo.js"></script>
+    <script src="~/Scripts/jquery.nav.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
-</html>
+</html>		
