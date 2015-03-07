@@ -4,32 +4,37 @@
 }
 <div class="portfolio section" id="section-3">
     <br /><br /><br /><br />
-@foreach (var item in Model)
+    @foreach (var item in Model)
+    {
+        if (item.ImagePaths.Any())
         {
-    <ul class="portfolio_grids">
 
-            <li>
-                <div class="view view-fifth">
-                    <img src="~/ProductImages/@(item.ImagePaths.First())" class="img-responsive" alt="" />
-                    <div class="mask">
-                        <div class="mask1">
-                            <h3>View</h3>
-                            <h4>Details</h4>
-                            <a class="popup-with-zoom-anim" href="#small-dialog1"> <div class="info">Next</div></a>
-                            <div id="small-dialog1" class="mfp-hide">
-                                <div class="pop_up1">
-                                    <h3>Duis autem vel </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+            <ul class="portfolio_grids">
+
+                <li>
+                    <div class="view view-fifth">
+                        <img src="~/ProductImages/@(item.ImagePaths.Any() ? item.ImagePaths.First() : "" )" class="img-responsive" alt="" />
+                        <div class="mask">
+                            <div class="mask1">
+                                <h3>View</h3>
+                                <h4>Details</h4>
+                                <a class="popup-with-zoom-anim" href="#small-dialog1"> <div class="info">Next</div></a>
+                                <div id="small-dialog1" class="mfp-hide">
+                                    <div class="pop_up1">
+                                        <h3>Duis autem vel </h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
 
-    </ul>
+            </ul>
+
         }
+    }
 
     <div class="clearfix"></div>
 </div>
