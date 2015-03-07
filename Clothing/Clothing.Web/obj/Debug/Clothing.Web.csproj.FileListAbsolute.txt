@@ -124,3 +124,7 @@
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.dll
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.pdb
 \\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\obj\Debug\Clothing.Web.csprojResolveAssemblyReference.cache
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.WindowsAzure.Diagnostics.dll
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.WindowsAzure.ServiceRuntime.dll
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.WindowsAzure.StorageClient.dll
+\\psf\Home\Desktop\Clothing\Clothing\Clothing.Web\bin\Microsoft.WindowsAzure.Diagnostics.StorageUtility.dll

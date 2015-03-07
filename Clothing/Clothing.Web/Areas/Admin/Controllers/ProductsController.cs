@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Clothing.Web.DataModels;
 using Clothing.Web.Data;
 using Clothing.Web.DTOs;
+using Microsoft.WindowsAzure.ServiceRuntime;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
@@ -23,7 +24,7 @@ namespace Clothing.Web.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var path = HttpContext.Server.MapPath("~/ProductImages/");
-
+            LocalResource localResource = RoleEnvironment.GetLocalResource("ProductImages");
             var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories).Select(Path.GetFileName);
 
             var products = repository.Products.ToList();

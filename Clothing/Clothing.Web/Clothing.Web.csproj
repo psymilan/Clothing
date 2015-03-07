@@ -40,6 +40,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\AzureSDK2.2DLLs.1.0.0\lib\Microsoft.WindowsAzure.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AzureSDK2.2DLLs.1.0.0\lib\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\AzureSDK2.2DLLs.1.0.0\lib\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -234,6 +244,9 @@
     <Content Include="Content\Template\images\p8.jpg" />
     <Content Include="Content\Template\images\p9.jpg" />
     <Content Include="Content\Template\images\social.png" />
+    <Content Include="ProductImages\2-d50479d7.jpeg" />
+    <Content Include="ProductImages\2-dce2a30d.jpeg" />
+    <Content Include="ProductImages\3-9e468342.jpeg" />
     <Content Include="Scripts\jquery.cycle.all.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -309,7 +322,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ProductImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
