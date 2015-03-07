@@ -27,12 +27,10 @@ namespace Clothing.Web.Controllers
             var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Looks).Select(i => i.ImageName).ToArray();
             var products = repository.Products.ToList().Select(p => new ProductDto
             {
-                Description = p.Description,
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 QuantityAvailable = p.QuantityAvailable,
-                ShortDescription = p.ShortDescription,
                 ImagePaths = images.Where(i => i.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture)))
             }).ToList();
 

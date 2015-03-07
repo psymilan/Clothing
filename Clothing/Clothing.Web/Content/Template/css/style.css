@@ -55,7 +55,7 @@ ul#nav {
 	display: inline-block;
 }
 .cssmenu > ul > li > a {
-	color: #E0C8A8;
+	color: #ffcc00;
 	display: block;
 	padding: 5px 5px;
 	font-size: 1.1em;
@@ -77,10 +77,15 @@ ul#nav {
 .banner-wrap{
 	width: 40%;
 	margin: 0 auto;
-	border: 10px solid #fff;
+	border: 10px solid #CC9900;
 	text-align:center;
 	padding:1em 0 2em;
+	background-color:#291F19;
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+	
 }
+
 .banner-wrap span{
 	width:535px;
 	height:136px;
@@ -133,8 +138,8 @@ ul.wmuSliderPagination {
 	border: 3px solid #fff;
 }
 .wmuSliderPagination a.wmuActive {
-	background:#372f2d;
-	border: 3px solid #372f2d;
+	background:#CC9900;
+	border: 3px solid #CC9900;
 }
 /*--about--*/
 .about{
@@ -364,19 +369,37 @@ i.icon1{
 	float: left;
 	margin-right: 0.5em;
 }
+
+p.detail{
+	float:left;
+	color:#291F19;
+	font-size:1em;
+	margin-top:20px;
+}
+
 p.address{
 	float:left;
 	color:#ccc;
 	font-size:1em;
 	margin-top: 20px;
 }
+
 span.phone{
 	color:#fff;
+}
+
+span.detail{
+	color:#291F19;
 }
 span.email a{
 	color:#ccc;
 	font-style: italic;
 }
+
+img.detailimg {
+	border: 5px double #372f2d;
+}
+
 i.icon2{
 	width: 60px;
 	height: 60px;

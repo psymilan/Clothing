@@ -5,9 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Clothing.Web.Areas.Admin.Models;
 using Clothing.Web.DataModels;
 using Clothing.Web.Data;
+using Clothing.Web.DTOs;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
@@ -27,15 +27,17 @@ namespace Clothing.Web.Areas.Admin.Controllers
             var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories).Select(Path.GetFileName);
 
             var products = repository.Products.ToList();
-            var prodList = products.Select(p => new ProductListModel
+            var prodList = products.Select(p => new ProductDto
            {
-               Description = p.Description,
+
                Id = p.Id,
                Name = p.Name,
                Price = p.Price,
                QuantityAvailable = p.QuantityAvailable,
-               ShortDescription = p.ShortDescription,
-
+               Color = p.Color,
+               Instructions = p.Instructions,
+               Material = p.Material,
+               Size =p.Size,
                HasImages = files.Any(f => f.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture))),
                ImagePaths = files.Where(f => f.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture))).ToArray()
            }).ToList();

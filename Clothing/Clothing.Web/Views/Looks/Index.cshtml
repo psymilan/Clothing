@@ -13,7 +13,10 @@
                 <h2>@item.Name</h2>
                 <a class="thumbnail"><img alt="some image" src="~/ProductImages/@(item.ImagePaths.First())" /></a>
                 <p>
-                    @item.Description
+                    @item.Material
+                </p>
+                <p>
+                    @item.Instructions
                 </p>
                 <p><a class="btn btn-default addToCart" data-id=@item.Id>Add to cart &raquo;</a></p>
             </div>

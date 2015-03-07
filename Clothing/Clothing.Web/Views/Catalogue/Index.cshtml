@@ -4,31 +4,35 @@
 }
 <div class="portfolio section" id="section-3">
     <br /><br /><br /><br />
+@foreach (var item in Model)
+        {
     <ul class="portfolio_grids">
-        <li>
-            <div class="view view-fifth">
-                <img src="~/Content/Template/images/p1.jpg" class="img-responsive" alt="" />
-                <div class="mask">
-                    <div class="mask1">
-                        <h3>View</h3>
-                        <h4>Details</h4>
-                        <a class="popup-with-zoom-anim" href="#small-dialog1"> <div class="info">Next</div></a>
-                        <div id="small-dialog1" class="mfp-hide">
-                            <div class="pop_up1">
-                                <h3>Duis autem vel </h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+
+            <li>
+                <div class="view view-fifth">
+                    <img src="~/ProductImages/@(item.ImagePaths.First())" class="img-responsive" alt="" />
+                    <div class="mask">
+                        <div class="mask1">
+                            <h3>View</h3>
+                            <h4>Details</h4>
+                            <a class="popup-with-zoom-anim" href="#small-dialog1"> <div class="info">Next</div></a>
+                            <div id="small-dialog1" class="mfp-hide">
+                                <div class="pop_up1">
+                                    <h3>Duis autem vel </h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+
     </ul>
+        }
 
     <div class="clearfix"></div>
 </div>
-
 @*<div class="container">
     @foreach (var item in Model)
     {
@@ -42,18 +46,18 @@
                 @item.Price
             </p>
             @*<p><a id="addToCart" class="btn btn-default" data-id=@item.Id>Add to cart &raquo;</a></p>*@
-            @*@Html.ActionLink("Detail", "Detail", "Catalogue", new { id = item.Id }, null)
-        </div>
-    }
-</div>
-<script>
-    $(document).ready(function() {
-        $('#addToCart').click(function() {
-            var id = $(this).data('id');
+@*@Html.ActionLink("Detail", "Detail", "Catalogue", new { id = item.Id }, null)
+            </div>
+        }
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#addToCart').click(function() {
+                var id = $(this).data('id');
 
-            $.get('/Catalogue/AddItem?id='+id, function(data) {
-                $('#counter').html(data);
+                $.get('/Catalogue/AddItem?id='+id, function(data) {
+                    $('#counter').html(data);
+                });
             });
         });
-    });
-</script>*@
+    </script>*@

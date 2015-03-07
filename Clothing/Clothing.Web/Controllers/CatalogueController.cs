@@ -24,15 +24,13 @@ namespace Clothing.Web.Controllers
                 var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
                 ViewBag.ItemCount = itemsInOrder;
             }
-            var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
+            var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Looks).Select(i => i.ImageName).ToArray();
             var products = repository.Products.ToList().Select(p => new ProductDto
             {
-                Description = p.Description,
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 QuantityAvailable = p.QuantityAvailable,
-                ShortDescription = p.ShortDescription,
                 ImagePaths = images.Where(i => i.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture)))
             }).ToList();
 
@@ -85,15 +83,12 @@ namespace Clothing.Web.Controllers
             var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
             var productDto = new ProductDto
             {
-                Description = product.Description,
                 Id = product.Id,
                 Name = product.Name,
                 Price = product.Price,
                 QuantityAvailable = product.QuantityAvailable,
-                ShortDescription = product.ShortDescription,
                 ImagePaths = images.Where(i => i.StartsWith(product.Id.ToString(CultureInfo.InvariantCulture)))
             };
-
             return View(productDto);
         }
 

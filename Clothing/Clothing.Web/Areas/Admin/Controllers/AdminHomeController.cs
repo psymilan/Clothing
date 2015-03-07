@@ -35,7 +35,7 @@ namespace Clothing.Web.Areas.Admin.Controllers
             TempData["notice"] = "New product added";
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Products");
         }
 
     }

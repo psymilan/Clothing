@@ -33,5 +33,7 @@ namespace Clothing.Web.Data
         //}
 
         public DbSet<Blog> Blogs { get; set; }
+
+        public System.Data.Entity.DbSet<Clothing.Web.DTOs.ProductDto> ProductDtoes { get; set; }
     }
 }
