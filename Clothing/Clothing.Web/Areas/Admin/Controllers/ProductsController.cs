@@ -139,13 +139,25 @@ namespace Clothing.Web.Areas.Admin.Controllers
 
         public ActionResult FileUpload(HttpPostedFileBase file, int productId, int imageCategory)
         {
-            var path = HttpContext.Server.MapPath("~/ProductImages/");
-            var productImage = new ProductImage();
-            productImage.CreateImage(productId, path, imageCategory);
+            //var path = HttpContext.Server.MapPath("~/ProductImages/");
+            //var productImage = new ProductImage();
+            //productImage.CreateImage(productId, path, imageCategory);
 
-            file.SaveAs(path + productImage.ImageName);
+            //file.SaveAs(path + productImage.ImageName);
 
-            repository.ProductImages.Add(productImage);
+            //repository.ProductImages.Add(productImage);
+            //repository.SaveChanges();
+            var target = new MemoryStream();
+            file.InputStream.CopyTo(target);
+            byte[] data = target.ToArray();
+
+
+            var image = new ProImage();
+            image.Image = data;
+            image.ProductId = productId;
+            image.Type = imageCategory;
+
+            repository.ProImages.Add(image);
             repository.SaveChanges();
             TempData["notice"] = "Image uploaded";
             return RedirectToAction("Edit", new { id = productId });

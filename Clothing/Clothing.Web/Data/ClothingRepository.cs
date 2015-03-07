@@ -23,6 +23,9 @@ namespace Clothing.Web.Data
 
         public IEntitySet<ItemInOrder> ItemInOrders { get; private set; }
 
+        public IEntitySet<ProImage> ProImages { get; private set; }
+
+
         public ClothingRepository(ClothingContext ctx)
         {
             _ctx = ctx;
@@ -42,6 +45,8 @@ namespace Clothing.Web.Data
             ProductImages = new EntitySet<ProductImage>(ctx);
 
             ItemInOrders = new EntitySet<ItemInOrder>(ctx);
+
+            ProImages = new EntitySet<ProImage>(ctx);
 
         }
 

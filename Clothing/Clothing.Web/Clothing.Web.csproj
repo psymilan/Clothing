@@ -187,6 +187,7 @@
     <Compile Include="DataModels\ItemInOrder.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\ProductImage.cs" />
+    <Compile Include="DataModels\ProImage.cs" />
     <Compile Include="DataModels\UsersInRole.cs" />
     <Compile Include="Data\ClothingContext.cs" />
     <Compile Include="Data\ClothingRepository.cs" />
