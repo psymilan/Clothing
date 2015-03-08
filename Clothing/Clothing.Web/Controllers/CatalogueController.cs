@@ -24,14 +24,13 @@ namespace Clothing.Web.Controllers
                 var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
                 ViewBag.ItemCount = itemsInOrder;
             }
-            var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Looks).Select(i => i.ImageName).ToArray();
             var products = repository.Products.ToList().Select(p => new ProductDto
             {
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 QuantityAvailable = p.QuantityAvailable,
-                ImagePaths = images.Where(i => i.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture)))
+                ImagePaths = p.ProductImages.Select(i => i.FullPath + i.ImageName)
             }).ToList();
 
             return View(products);

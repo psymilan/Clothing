@@ -8,29 +8,28 @@ using System.Web.Mvc;
 using Clothing.Web.DataModels;
 using Clothing.Web.Data;
 using Clothing.Web.DTOs;
+using Clothing.Web.Helpers;
 using Microsoft.WindowsAzure.ServiceRuntime;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
 
     public class ProductsController : Controller
     {
+        private BlobStorageHelper blob;
         private readonly IClothingRepository repository;
         public ProductsController(IClothingRepository repo)
         {
+            blob = new BlobStorageHelper();
             repository = repo;
         }
         // GET: /Admin/Products/
         public ActionResult Index()
         {
-            var path = HttpContext.Server.MapPath("~/ProductImages/");
-            LocalResource localResource = RoleEnvironment.GetLocalResource("ProductImages");
-            var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories).Select(Path.GetFileName);
-
             var products = repository.Products.ToList();
             var prodList = products.Select(p => new ProductDto
            {
-
                Id = p.Id,
                Name = p.Name,
                Price = p.Price,
@@ -39,8 +38,8 @@ namespace Clothing.Web.Areas.Admin.Controllers
                Instructions = p.Instructions,
                Material = p.Material,
                Size =p.Size,
-               HasImages = files.Any(f => f.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture))),
-               ImagePaths = files.Where(f => f.StartsWith(p.Id.ToString(CultureInfo.InvariantCulture))).ToArray()
+               HasImages = p.ProductImages.Any(),
+               ImagePaths = p.ProductImages.Select(i => i.FullPath + i.ImageName).ToList()
            }).ToList();
             return View(prodList);
         }
@@ -140,11 +139,11 @@ namespace Clothing.Web.Areas.Admin.Controllers
 
         public ActionResult FileUpload(HttpPostedFileBase file, int productId, int imageCategory)
         {
-            var path = HttpContext.Server.MapPath("~/ProductImages/");
             var productImage = new ProductImage();
-            productImage.CreateImage(productId, path, imageCategory);
-
-            file.SaveAs(path + productImage.ImageName);
+            productImage.CreateImage(productId, blob.GetUrl(), imageCategory);
+            CloudBlobContainer blobContainer = blob.GetCloudBlobContainer();
+            CloudBlockBlob b = blobContainer.GetBlockBlobReference(productImage.ImageName);
+            b.UploadFromStream(file.InputStream);
 
             repository.ProductImages.Add(productImage);
             repository.SaveChanges();

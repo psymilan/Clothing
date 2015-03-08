@@ -102,7 +102,7 @@
     @foreach (var image in ViewBag.Images)
     {
       <div class="col-lg-4 col-md-3 col-xs-6">
-          <a class="thumbnail"><img alt="some image" src="~/ProductImages/@image.ImageName" /></a>
+          <a class="thumbnail"><img alt="some image" src="@(image.FullPath + image.ImageName)" /></a>
           @Html.ActionLink("Delete", "DeleteImage", new {id = image.Id })
     </div>
     }

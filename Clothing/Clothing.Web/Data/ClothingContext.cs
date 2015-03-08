@@ -17,7 +17,6 @@ namespace Clothing.Web.Data
         public DbSet<UsersInRole> UsersInRoles { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ItemInOrder> ItemInOrders { get; set; }
-        public DbSet<ProImage> ProImages { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -18,6 +18,5 @@ namespace Clothing.Web.DataModels
 
         public virtual ICollection<ItemInOrder> ItemInOrders { get; set; }
         public virtual ICollection<ProductImage> ProductImages { get; set; }
-        public virtual ICollection<ProImage> ProImages { get; set; }
     }
 }

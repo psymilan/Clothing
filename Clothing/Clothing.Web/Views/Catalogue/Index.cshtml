@@ -13,7 +13,7 @@
 
                 <li>
                     <div class="view view-fifth">
-                        <img src="~/ProductImages/@(item.ImagePaths.Any() ? item.ImagePaths.First() : "" )" class="img-responsive" alt="" />
+                        <img src="@(item.ImagePaths.First())" class="img-responsive" alt="" />
                         <div class="mask">
                             <div class="mask1">
                                 <h3>View</h3>
