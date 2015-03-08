@@ -65,19 +65,15 @@ namespace Clothing.Web.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: /Admin/Products/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
-            if (ModelState.IsValid)
-            {
-                repository.Products.Add(product);
-                repository.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            repository.Products.Add(product);
+            repository.SaveChanges();
+            TempData["notice"] = "New product added";
 
-            return View(product);
+
+            return RedirectToAction("Index", "Products");
         }
 
         // GET: /Admin/Products/Edit/5
@@ -132,6 +128,12 @@ namespace Clothing.Web.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = repository.Products.Find(id);
+
+            foreach (var image in product.ProductImages.ToList())
+            {
+                repository.ProductImages.Remove(image);
+                blob.DeleteImage(image);
+            }
             repository.Products.Remove(product);
             repository.SaveChanges();
             return RedirectToAction("Index");
@@ -139,28 +141,29 @@ namespace Clothing.Web.Areas.Admin.Controllers
 
         public ActionResult FileUpload(HttpPostedFileBase file, int productId, int imageCategory)
         {
+            if (file == null)
+            {
+                TempData["bad"] = "Choose image!";
+                return RedirectToAction("Edit", new {id = productId});
+            }
             var productImage = new ProductImage();
             productImage.CreateImage(productId, blob.GetUrl(), imageCategory);
-            CloudBlobContainer blobContainer = blob.GetCloudBlobContainer();
-            CloudBlockBlob b = blobContainer.GetBlockBlobReference(productImage.ImageName);
-            b.UploadFromStream(file.InputStream);
-
+            blob.SaveImage(productImage, file);
             repository.ProductImages.Add(productImage);
             repository.SaveChanges();
 
-            TempData["notice"] = "Image uploaded";
+            TempData["good"] = "Image uploaded";
             return RedirectToAction("Edit", new { id = productId });
         }
 
         public ActionResult DeleteImage(int id)
         {
             var imageToDelete = repository.ProductImages.Find(id);
-
-            if (System.IO.File.Exists(imageToDelete.FullPath + imageToDelete.ImageName))
-                System.IO.File.Delete(imageToDelete.FullPath + imageToDelete.ImageName);
-
+            blob.DeleteImage(imageToDelete);
             repository.ProductImages.Remove(imageToDelete);
             repository.SaveChanges();
+
+            TempData["good"] = "Image deleted!";
             return RedirectToAction("Edit", new { id = imageToDelete.ProductId });
         }
 

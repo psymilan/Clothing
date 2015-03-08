@@ -220,7 +220,6 @@
     <Compile Include="DataModels\ItemInOrder.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\ProductImage.cs" />
-    <Compile Include="DataModels\ProImage.cs" />
     <Compile Include="DataModels\UsersInRole.cs" />
     <Compile Include="Data\ClothingContext.cs" />
     <Compile Include="Data\ClothingRepository.cs" />
@@ -267,9 +266,6 @@
     <Content Include="Content\Template\images\p8.jpg" />
     <Content Include="Content\Template\images\p9.jpg" />
     <Content Include="Content\Template\images\social.png" />
-    <Content Include="ProductImages\2-d50479d7.jpeg" />
-    <Content Include="ProductImages\2-dce2a30d.jpeg" />
-    <Content Include="ProductImages\3-9e468342.jpeg" />
     <Content Include="Scripts\jquery.cycle.all.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -284,7 +280,6 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHome\AddProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Details.cshtml" />

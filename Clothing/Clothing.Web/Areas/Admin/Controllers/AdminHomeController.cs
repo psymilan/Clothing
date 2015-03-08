@@ -1,8 +1,5 @@
-﻿using System.IO;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Clothing.Web.Data;
-using Clothing.Web.DataModels;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
@@ -25,17 +22,6 @@ namespace Clothing.Web.Areas.Admin.Controllers
         public ActionResult AddProduct()
         {
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddProduct(Product product, HttpPostedFileBase file)
-        {
-            repository.Products.Add(product);
-            repository.SaveChanges();
-            TempData["notice"] = "New product added";
-
-
-            return RedirectToAction("Index", "Products");
         }
 
     }
