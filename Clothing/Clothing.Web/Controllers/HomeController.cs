@@ -62,7 +62,7 @@ namespace Clothing.Web.Controllers
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;
-            mail.ReplyTo = new MailAddress(contactForm.Email);
+
             var client = new SmtpClient
             {
                 Credentials = new NetworkCredential("psymilan99@gmail.com", "milan1989"),
