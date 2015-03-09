@@ -25,16 +25,30 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                <div class="contact-form">
-                    <form method="post" action="contact-post.html">
-                        <input type="text" class="textbox" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-                        <input type="text" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-                        <textarea value="Message" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+            @using (Html.BeginForm("SendEmail", "Home", FormMethod.Post, null))
+            {
+
+                <div class="col-md-6">
+                    <div class="contact-form">
+
+                        <input name="Name" type="text" class="textbox" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                        <input name="Email" type="text" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                        <textarea name="Message" onfocus="this.value= '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
                         <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Send"></label>
-                    </form>
+
+                        @if (TempData["email"] != null)
+                        {
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">
+                                    &times;
+                                </button>
+                                @TempData["email"]
+                            </div>
+                        }
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </div> 
