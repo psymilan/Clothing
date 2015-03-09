@@ -54,7 +54,7 @@ namespace Clothing.Web.Controllers
         {
             var mail = new MailMessage();
             mail.To.Add("shirin.vakhidova@gmail.com");
-            mail.From = new MailAddress(contactForm.Email, contactForm.Name, System.Text.Encoding.UTF8);
+            mail.From = new MailAddress("psymilan99@gmail.com", contactForm.Name, System.Text.Encoding.UTF8);
             mail.Subject = contactForm.Name + " - " + contactForm.Email + " wrote you on SHIRIN-VAHIDI.COM";
             mail.SubjectEncoding = System.Text.Encoding.UTF8;
             var body = "Email: " + contactForm.Email + "<br />" + contactForm.Message;
