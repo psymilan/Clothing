@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="portfolio section" id="section-3">
+<div class="portfolio section" id="section-3" style="padding: 20px 0 30px 0;">
     <br /><br /><br /><br />
     @foreach (var item in Model)
     {
@@ -18,7 +18,7 @@
                             <div class="mask1">
                                 <h3>View</h3>
                                 <h4>Details</h4>
-                                <a class="popup-with-zoom-anim" href="#small-dialog1"> <div class="info">Next</div></a>
+                                <a class="info" href="/Catalogue/Detail/@item.Id">Next</a>
                                 <div id="small-dialog1" class="mfp-hide">
                                     <div class="pop_up1">
                                         <h3>Duis autem vel </h3>
@@ -38,31 +38,4 @@
 
     <div class="clearfix"></div>
 </div>
-@*<div class="container">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4 pad">
-            <h2>@item.Name</h2>
-            <a class="thumbnail" href="/Catalogue/Detail/@item.Id"><img alt="some image" src="~/ProductImages/@(item.ImagePaths.First())" /></a>
-            <p>
-                @item.Description
-            </p>
-            <p>
-                @item.Price
-            </p>
-            @*<p><a id="addToCart" class="btn btn-default" data-id=@item.Id>Add to cart &raquo;</a></p>*@
-@*@Html.ActionLink("Detail", "Detail", "Catalogue", new { id = item.Id }, null)
-            </div>
-        }
-    </div>
-    <script>
-        $(document).ready(function() {
-            $('#addToCart').click(function() {
-                var id = $(this).data('id');
 
-                $.get('/Catalogue/AddItem?id='+id, function(data) {
-                    $('#counter').html(data);
-                });
-            });
-        });
-    </script>*@

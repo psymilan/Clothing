@@ -255,16 +255,6 @@
     <Content Include="Content\Template\images\img-sprite.png" />
     <Content Include="Content\Template\images\logo.png" />
     <Content Include="Content\Template\images\map.jpg" />
-    <Content Include="Content\Template\images\p1.jpg" />
-    <Content Include="Content\Template\images\p10.jpg" />
-    <Content Include="Content\Template\images\p2.jpg" />
-    <Content Include="Content\Template\images\p3.jpg" />
-    <Content Include="Content\Template\images\p4.jpg" />
-    <Content Include="Content\Template\images\p5.jpg" />
-    <Content Include="Content\Template\images\p6.jpg" />
-    <Content Include="Content\Template\images\p7.jpg" />
-    <Content Include="Content\Template\images\p8.jpg" />
-    <Content Include="Content\Template\images\p9.jpg" />
     <Content Include="Content\Template\images\social.png" />
     <Content Include="Scripts\jquery.cycle.all.js" />
     <Content Include="favicon.ico" />
