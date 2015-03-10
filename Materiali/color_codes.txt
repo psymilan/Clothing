@@ -1,2 +1,0 @@
-yellow - c0 m20 y100 k0
-brown - pantone 7519 c

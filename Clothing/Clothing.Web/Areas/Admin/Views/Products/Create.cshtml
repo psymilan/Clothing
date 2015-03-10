@@ -55,7 +55,13 @@
                 @Html.ValidationMessageFor(model => model.Price)
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.Color, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Color)
+                @Html.ValidationMessageFor(model => model.Color)
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.QuantityAvailable, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
