@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Clothing.Web.Data;
 using Clothing.Web.DataModels;
@@ -71,24 +70,6 @@ namespace Clothing.Web.Controllers
 
         public ActionResult Detail(int id)
         {
-            //var product = repository.Products.SingleOrDefault(p => p.Id == id);
-
-            //if (User.Identity.IsAuthenticated)
-            //{
-            //    var userId = int.Parse(User.Identity.Name);
-            //    var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
-            //    ViewBag.ItemCount = itemsInOrder;
-            //}
-            //var images = repository.ProductImages.Where(i => i.ImageCategory == ImageCategory.Catalogue).Select(i => i.ImageName).ToArray();
-            //var productDto = new ProductDto
-            //{
-            //    Id = product.Id,
-            //    Name = product.Name,
-            //    Price = product.Price,
-            //    QuantityAvailable = product.QuantityAvailable,
-            //    ImagePaths = images.Where(i => i.StartsWith(product.Id.ToString(CultureInfo.InvariantCulture)))
-            //};
-
             var product = repository.Products.SingleOrDefault(p => p.Id == id);
             var productDto = new ProductDto
             {

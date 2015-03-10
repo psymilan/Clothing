@@ -1,5 +1,4 @@
-﻿
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
 using Clothing.Web.Data;
