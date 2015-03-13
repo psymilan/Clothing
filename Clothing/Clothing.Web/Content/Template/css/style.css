@@ -802,7 +802,12 @@ p.m_1, p.m_2 {
 	margin-top: 2em;
 }
 }
-
+ul.social li a i.inst{
+	background-position:-140px -4px;
+}
+ul.social li a i.pin{
+	background-position:-184px -4px;
+}
 .gradient
 {
     height: 100%;
