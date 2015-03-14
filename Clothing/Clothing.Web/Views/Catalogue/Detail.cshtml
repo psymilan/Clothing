@@ -4,27 +4,82 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+
+
+    .magnify {
+        width: 350px;
+        margin: 30px 0 0 auto;
+        position: relative;
+    }
+
+    /*Lets create the magnifying glass*/
+    .large {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        border-radius: 100%;
+        /*Multiple box shadows to achieve the glass effect*/
+        box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+        /*Lets load up the large image first*/
+        background: url('@(Model.ImagePaths.First())') no-repeat;
+        /*hide the glass by default*/
+        display: none;
+    }
+
+    /*To solve overlap bug at the edges during magnification*/
+    .small {
+        display: block;
+    }
+
+    .iconsSmall {
+          margin: 20px 0 0 0;
+  height: 150px;
+  width: 400px;
+    }
+</style>
 <div class="about section" id="section-2">
     <div class="container" style="padding-bottom:50px;">
 
         <div class="col-md-4 about_left">
-            <img class="detailimg" src="@(Model.ImagePaths.First())" alt="" />
+            <div class="magnify">
+                <img class="detailimg small" src="@(Model.ImagePaths.First())" alt="" />
+                <div class="large"></div>
+
+            </div>
+            <div class="iconsSmall">
+                @foreach (var image in @Model.ImagePaths)
+                {
+                    <div style="margin-right:25px; width:100px; float:left">
+                        <img style="height:150px;" src="@image" alt="" />
+                    </div>
+                }
+            </div>
         </div>
+
         <div class="col-md-6 about_right" style=" padding-left:17%;">
             <ul class="list">
                 <li class="list1">
-                    <i></i><p class="detail"><span class="detail">Name :
-                    </span>@Model.Name</p>
+                    <i></i><p class="detail">
+                        <span class="detail">
+                            Name :
+                        </span>@Model.Name
+                    </p>
                     <div class="clearfix"> </div>
                 </li>
                 <li class="list1">
-                    <i> </i><p class="detail"><span class="detail">Price :
-                    </span><span>@((int)Model.Price) $</span></p>
+                    <i> </i><p class="detail">
+                        <span class="detail">
+                            Price :
+                        </span><span>@((int)Model.Price) $</span>
+                    </p>
                     <div class="clearfix"> </div>
                 </li>
                 <li class="list1">
-                    <i> </i><p class="detail"><span class="detail">Size :</span> 
-                    @Model.Size</p>
+                    <i> </i><p class="detail">
+                        <span class="detail">Size :</span>
+                        @Model.Size
+                    </p>
                     <div class="clearfix"></div>
                 </li>
                 <li class="list1">
@@ -36,21 +91,34 @@
                     <div class="clearfix"> </div>
                 </li>
                 <li class="list1">
-                    <i> </i><p class="detail"><span class="detail">Note :
-                    </span>@Model.Instructions</p>
+                    <i> </i><p class="detail">
+                        <span class="detail">
+                            Note :
+                        </span>@Model.Instructions
+                    </p>
                     <div class="clearfix"> </div>
                 </li>
                 <li class="list1 last">
-                    <a href="/Catalogue/Index" class="btn1 btn-1 btn1-1b">Back</a> 
-                    <a href="addcart" class="btn1 btn-1 btn1-1b">I want this!</a>
-                    <form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="shirin.vakhidova@gmail.com">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="hidden" name="item_name" value="@Model.Name">
-                        <input type="hidden" name="amount" value="@Model.Price">
-                        <input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-                    </form>
+                    <a href="/Catalogue/Index" class="btn1 btn-1 btn1-1b">Back</a>
+                    @*<a href="addcart" class="btn1 btn-1 btn1-1b">I want this!</a>*@
+
+                    <a class="popup-with-zoom-anim btn1 btn-1 btn1-1b" href="#small-dialog1">I want this</a>
+                    <div id="small-dialog1" class="mfp-hide">
+                        <div class="pop_up1">
+                            <h3>Continue with PayPal</h3>
+                            <p>User the well known and secure PayPal payment service until we implement another method for paying.</p>
+                            <div class="paypal">
+                                <form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+                                    <input type="hidden" name="cmd" value="_xclick">
+                                    <input type="hidden" name="business" value="shirin.vakhidova@gmail.com">
+                                    <input type="hidden" name="currency_code" value="USD">
+                                    <input type="hidden" name="item_name" value="@Model.Name">
+                                    <input type="hidden" name="amount" value="@Model.Price">
+                                    <input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     <div class="clearfix"> </div>
                 </li>
             </ul>
@@ -58,3 +126,49 @@
 
     </div>
 </div>
+<script src="~/Scripts/magnify.js"></script>
+<script>
+    $(document).ready(function() {
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        var native_width = 0;
+        var native_height = 0;
+
+        $(".magnify").mousemove(function (e) {
+
+            if (!native_width && !native_height) {
+
+                var image_object = new Image();
+                image_object.src = $(".small").attr("src");
+                native_width = image_object.width;
+                native_height = image_object.height;
+            } else {
+
+                var magnify_offset = $(this).offset();
+
+                var mx = e.pageX - magnify_offset.left;
+                var my = e.pageY - magnify_offset.top;
+
+                //fade out
+                if (mx < $(this).width() && my < $(this).height() && mx > 0 && my > 0) {
+                    $(".large").fadeIn(100);
+                } else {
+                    $(".large").fadeOut(100);
+                }
+                if ($(".large").is(":visible")) {
+
+                    var rx = Math.round(mx / $(".small").width() * native_width - $(".large").width() / 2) * -1;
+                    var ry = Math.round(my / $(".small").height() * native_height - $(".large").height() / 2) * -1;
+                    var bgp = rx + "px " + ry + "px";
+
+                    var px = mx - $(".large").width() / 2;
+                    var py = my - $(".large").height() / 2;
+                    $(".large").css({ left: px, top: py, backgroundPosition: bgp });
+                }
+            }
+        });
+    })
+</script>
