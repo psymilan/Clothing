@@ -12,19 +12,14 @@
         margin: 30px 0 0 auto;
         position: relative;
     }
-
-    /*Lets create the magnifying glass*/
     .large {
         width: 250px;
         height: 250px;
         position: absolute;
         border-radius: 100%;
-        /*Multiple box shadows to achieve the glass effect*/
         box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
-        /*Lets load up the large image first*/
-        background: url('@(Model.ImagePaths.First())') no-repeat;
-        /*hide the glass by default*/
         display: none;
+        background: url('@(Model.ImagePaths.First())') no-repeat;
     }
 
     /*To solve overlap bug at the edges during magnification*/
@@ -51,7 +46,7 @@
                 @foreach (var image in @Model.ImagePaths)
                 {
                     <div style="margin-right:25px; width:100px; float:left">
-                        <img style="height:150px;" src="@image" alt="" />
+                        <a style="cursor:pointer;"><img class="imageClick" style="height:150px;" src="@image" alt="" /></a>
                     </div>
                 }
             </div>
@@ -100,7 +95,6 @@
                 </li>
                 <li class="list1 last">
                     <a href="/Catalogue/Index" class="btn1 btn-1 btn1-1b">Back</a>
-                    @*<a href="addcart" class="btn1 btn-1 btn1-1b">I want this!</a>*@
 
                     <a class="popup-with-zoom-anim btn1 btn-1 btn1-1b" href="#small-dialog1">I want this</a>
                     <div id="small-dialog1" class="mfp-hide">
@@ -128,7 +122,13 @@
 </div>
 <script src="~/Scripts/magnify.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
+        $('.imageClick').click(function() {
+            var src = $(this).attr('src');
+            $('.detailimg').attr('src', src);
+            $('.large').css('background-image', 'url(' + src + ')');
+        });
+
     });
 </script>
 <script>
