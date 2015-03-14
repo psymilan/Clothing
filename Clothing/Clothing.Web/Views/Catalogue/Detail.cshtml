@@ -5,7 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
+    #cf2 {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:0 auto;
+}
+#cf2 img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
 
+#cf2 img.transparent {
+opacity:0;
+}
+#cf_onclick {
+cursor:pointer;
+}
 
     .magnify {
         width: 350px;
@@ -25,6 +45,10 @@
     /*To solve overlap bug at the edges during magnification*/
     .small {
         display: block;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
     }
 
     .iconsSmall {
@@ -32,6 +56,7 @@
   height: 150px;
   width: 400px;
     }
+
 </style>
 <div class="about section" id="section-2">
     <div class="container" style="padding-bottom:50px;">
@@ -45,7 +70,7 @@
             <div class="iconsSmall">
                 @foreach (var image in @Model.ImagePaths)
                 {
-                    <div style="margin-right:25px; width:100px; float:left">
+                    <div style="margin-right:25px; width:106px; float:left; border-style:groove; ">
                         <a style="cursor:pointer;"><img class="imageClick" style="height:150px;" src="@image" alt="" /></a>
                     </div>
                 }
@@ -117,15 +142,16 @@
                 </li>
             </ul>
         </div>
-
     </div>
 </div>
 <script src="~/Scripts/magnify.js"></script>
 <script>
+
     $(document).ready(function () {
-        $('.imageClick').click(function() {
+        $('.imageClick').click(function () {
+            $("#cf2 img").toggleClass("transparent");
             var src = $(this).attr('src');
-            $('.detailimg').attr('src', src);
+            $('.detailimg').attr('src', src).fadeIn();
             $('.large').css('background-image', 'url(' + src + ')');
         });
 
