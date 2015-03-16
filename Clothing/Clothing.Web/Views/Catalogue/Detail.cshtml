@@ -33,10 +33,10 @@ cursor:pointer;
         position: relative;
     }
     .large {
-        width: 250px;
-        height: 250px;
+        width: 420px;
+        height: 200px;
         position: absolute;
-        border-radius: 100%;
+        border-radius: 3%;
         box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
         display: none;
         background: url('@(Model.ImagePaths.First())') no-repeat;
@@ -82,7 +82,7 @@ cursor:pointer;
                 <li class="list1">
                     <i></i><p class="detail">
                         <span class="detail">
-                            Name :
+                            <b>Name</b> :
                         </span>@Model.Name
                     </p>
                     <div class="clearfix"> </div>
@@ -90,14 +90,14 @@ cursor:pointer;
                 <li class="list1">
                     <i> </i><p class="detail">
                         <span class="detail">
-                            Price :
+                            <b>Price</b> :
                         </span><span>@((int)Model.Price) $</span>
                     </p>
                     <div class="clearfix"> </div>
                 </li>
                 <li class="list1">
                     <i> </i><p class="detail">
-                        <span class="detail">Size :</span>
+                                <span class="detail"><b>Size</b> :</span>
                         @Model.Size
                     </p>
                     <div class="clearfix"></div>
@@ -105,7 +105,7 @@ cursor:pointer;
                 <li class="list1">
                     <i> </i>
                     <p class="detail">
-                        <span class="detail">Material :</span>
+                        <span class="detail"><b>Fabric</b> :</span>
                         @Model.Material
                     </p>
                     <div class="clearfix"> </div>
@@ -113,7 +113,7 @@ cursor:pointer;
                 <li class="list1">
                     <i> </i><p class="detail">
                         <span class="detail">
-                            Note :
+                            <b>Note</b> :
                         </span>@Model.Instructions
                     </p>
                     <div class="clearfix"> </div>

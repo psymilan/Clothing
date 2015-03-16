@@ -27,7 +27,7 @@ namespace Clothing.Web.Areas.Admin.Controllers
         // GET: /Admin/Products/
         public ActionResult Index()
         {
-            var products = repository.Products.ToList();
+            var products = repository.Products.OrderBy(p => p.Sorting).ToList();
             var prodList = products.Select(p => new ProductDto
            {
                Id = p.Id,
@@ -71,8 +71,6 @@ namespace Clothing.Web.Areas.Admin.Controllers
             repository.Products.Add(product);
             repository.SaveChanges();
             TempData["notice"] = "New product added";
-
-
             return RedirectToAction("Index", "Products");
         }
 

@@ -23,7 +23,7 @@ namespace Clothing.Web.Controllers
                 var itemsInOrder = repository.ItemInOrders.Count(i => i.CustomerId == userId && i.OrderId == null);
                 ViewBag.ItemCount = itemsInOrder;
             }
-            var products = repository.Products.ToList().Select(p => new ProductDto
+            var products = repository.Products.OrderBy(p => p.Sorting).ToList().Select(p => new ProductDto
             {
                 Id = p.Id,
                 Name = p.Name,
