@@ -3,7 +3,7 @@ using Clothing.Web.Data;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
-
+    [Authorize(Users="2")]
     public class AdminHomeController : Controller
     {
 
@@ -18,11 +18,5 @@ namespace Clothing.Web.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public ActionResult AddProduct()
-        {
-            return View();
-        }
-
     }
 }

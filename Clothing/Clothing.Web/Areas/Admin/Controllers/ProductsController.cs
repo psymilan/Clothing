@@ -1,6 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -9,12 +7,10 @@ using Clothing.Web.DataModels;
 using Clothing.Web.Data;
 using Clothing.Web.DTOs;
 using Clothing.Web.Helpers;
-using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace Clothing.Web.Areas.Admin.Controllers
 {
-
+    [Authorize(Users = "2")]
     public class ProductsController : Controller
     {
         private BlobStorageHelper blob;
@@ -37,7 +33,7 @@ namespace Clothing.Web.Areas.Admin.Controllers
                Color = p.Color,
                Instructions = p.Instructions,
                Material = p.Material,
-               Size =p.Size,
+               Size = p.Size,
                HasImages = p.ProductImages.Any(),
                ImagePaths = p.ProductImages.Select(i => i.FullPath + i.ImageName).ToList()
            }).ToList();
@@ -142,7 +138,7 @@ namespace Clothing.Web.Areas.Admin.Controllers
             if (file == null)
             {
                 TempData["bad"] = "Choose image!";
-                return RedirectToAction("Edit", new {id = productId});
+                return RedirectToAction("Edit", new { id = productId });
             }
             var productImage = new ProductImage();
             productImage.CreateImage(productId, blob.GetUrl(), imageCategory);

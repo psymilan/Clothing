@@ -42,7 +42,10 @@
                     <li><a href="/Home/About">About Us</a></li>
                     <li><a href="/Catalogue/Index">Online Store</a></li>
                     <li><a href="/Home/Contact">Contact Us</a></li>
-                    <li><a href="/Admin/AdminHome">Admin</a></li>
+                    @if (User.Identity.Name == "2")
+                    {
+                      <li><a href="/Admin/AdminHome">Admin</a></li>
+                    }
                 </ul>
             </div>
             <div class="clearfix"> </div>
