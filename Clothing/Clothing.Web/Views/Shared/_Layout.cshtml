@@ -31,25 +31,39 @@
     </script>
 </head>
 <body class="gradient">
-    <div class="header_top">
-        <div class="container">
-            <div class="logo">
-                <a href="/Home/Index"><img src="~/Content/Template/images/logo.png" alt=""></a>
+    <div class="" style="background: #291f19;">
+    <header class="container">
+        <div id="menu" class="navbar navbar-default">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <div class="logo hidden-sm hidden-xs">
+                    <a href="/Home/Index"><img src="~/Content/Template/images/logo.png" alt=""></a>
+                </div>
+                <div class="logo hidden-lg hidden-md">
+                    <a href="/Home/Index"><img style=" width: 150px; height: 50px;" src="~/Content/Template/images/banner_logo.png" alt=""></a>
+                </div>
             </div>
-            <div class="cssmenu">
-                <ul id="nav">
-                    <li class="current"><a href="/Home/Index">Home</a></li>
-                    <li><a href="/Home/About">About Us</a></li>
-                    <li><a href="/Catalogue/Index">Online Store</a></li>
-                    <li><a href="/Home/Contact">Contact Us</a></li>
+            @*<div class="cssmenu">*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav"><a href="/Home/Index">Home</a></li>
+                    <li class="nav"><a href="/Home/About">About Us</a></li>
+                    <li class="nav"><a href="/Catalogue/Index">Online Store</a></li>
+                    <li class="nav"><a href="/Home/Contact">Contact Us</a></li>
                     @if (User.Identity.Name == "2")
                     {
-                      <li><a href="/Admin/AdminHome">Admin</a></li>
+                        <li class="nav"><a href="/Admin/AdminHome">Admin</a></li>
                     }
                 </ul>
             </div>
-            <div class="clearfix"> </div>
+            @*</div>*@
         </div>
+        <div class="clearfix"> </div>
+    </header>
     </div>
     @RenderBody()
     <script src="~/Scripts/jquery.wmuSlider.js"></script>

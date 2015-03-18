@@ -167,7 +167,7 @@ ul.wmuSliderPagination {
     }
 /*--about--*/
 .about {
-    padding: 6em 0 0;
+    /*padding: 6em 0 0;*/
 }
 
 .about_left h3 {
@@ -985,4 +985,33 @@ ul.social li a i.pin {
     margin-right: auto;
     padding-top: 20px;
     width: 6em;
+}
+
+.navbar-default {
+  background-color: #291f19;
+  border-color: #291f19;
+}
+
+.navbar {
+    margin-top: 20px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #CC9900;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+  color: #CC9900;
+  background-color: #CC9900;
+  border-color: #CC9900;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: rgb(254, 254, 254);
+  background-color: transparent;
 }
