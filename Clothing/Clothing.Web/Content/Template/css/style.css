@@ -1037,11 +1037,12 @@ ul.social li a i.pin {
 
 @media (max-width:992px) {
     .info1 {
+                font-size: 2em;
         position: absolute;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 123%;
-        padding: 11.9% !important;
+        padding: 9.9% !important;
         /*padding: 114px;*/
         top: 1px;
     }
@@ -1049,11 +1050,12 @@ ul.social li a i.pin {
 
 @media (max-width:550px) {
     .info1 {
+        font-size: 2em;
         position: absolute;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 123%;
-        padding: 10.9% !important;
+        padding: 8.9% !important;
         /*padding: 114px;*/
         top: 1px;
     }
@@ -1061,11 +1063,12 @@ ul.social li a i.pin {
 
 @media (max-width:470px) {
     .info1 {
+        font-size: 2em;
         position: absolute;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 123%;
-        padding: 9.9% !important;
+        padding: 7.9% !important;
         top: 1px;
     }
 }
