@@ -2,39 +2,58 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <div class="portfolio section" id="section-3">
-    @foreach (var item in Model)
-    {
-        if (item.ImagePaths.Any())
+    <div class="container">
+        @foreach (var item in Model)
         {
+            if (item.ImagePaths.Any())
+            {
+                <div class="col-md-4">
 
-            <ul class="portfolio_grids">
-
-                <li>
-                    <div class="view view-fifth">
                         <img src="@(item.ImagePaths.First())" class="img-responsive" alt="" />
-                        <div class="mask">
-                            <div class="mask1">
-                                <h3>View</h3>
-                                <h4>Details</h4>
-                                <a class="info" href="/Catalogue/Detail/@item.Id"><span class="glyphicon glyphicon-arrow-right"></span></a>
-                                <div id="small-dialog1" class="mfp-hide">
-                                    <div class="pop_up1">
-                                        <h3>Duis autem vel </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                    <a class="info" href="/Catalogue/Detail/@item.Id"><span class="info1" style="position: absolute;">See more</span></a>
+
+                </div>
+            }
+        }
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+@*<div class="portfolio section" id="section-3">
+        @foreach (var item in Model)
+        {
+            if (item.ImagePaths.Any())
+            {
+
+                <ul class="portfolio_grids">
+
+                    <li>
+                        <div class="view view-fifth">
+                            <img src="@(item.ImagePaths.First())" class="img-responsive" alt="" />
+                            <div class="mask">
+                                <div class="mask1">
+                                    <h3>View</h3>
+                                    <h4>Details</h4>
+                                    <a class="info" href="/Catalogue/Detail/@item.Id"><span class="glyphicon glyphicon-arrow-right"></span></a>
+                                    <div id="small-dialog1" class="mfp-hide">
+                                        <div class="pop_up1">
+                                            <h3>Duis autem vel </h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-            </ul>
+                </ul>
 
+            }
         }
-    }
 
-    <div class="clearfix"></div>
-</div>
+        <div class="clearfix"></div>
+    </div>*@
 

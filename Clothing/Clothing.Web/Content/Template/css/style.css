@@ -303,9 +303,7 @@ ul.portfolio_grids {
     }
 
 .info {
-    display: inline-block;
     text-decoration: none;
-    padding: 0 40px;
     background: none;
     font-size: 2em;
     border-top: 1px solid #fff;
@@ -399,7 +397,6 @@ h5.m_4 {
 
 .contact {
     background: url(../images/map.jpg)no-repeat center #372f2d;
-    padding: 5em 0;
 }
 
 ul.list {
@@ -591,8 +588,8 @@ h3.head {
 
 p.copy {
     float: left;
-    font-size: 0.85em;
-    color: #949494;
+    font-size: 1.00em;
+    color: white;
     margin-top: 10px;
 }
 
@@ -655,7 +652,7 @@ ul.social {
 
 @media (max-width:1024px) {
     .banner-wrap span {
-        width: 382px;
+        width: 150px;
         height: 100px;
         background-size: 104%;
     }
@@ -699,8 +696,8 @@ ul.social {
 
 @media (max-width:800px) {
     .banner-wrap span {
-        width: 295px;
-        height: 80px;
+        width: 150px;
+        height: 100px;
         background-size: 104%;
     }
 
@@ -750,9 +747,9 @@ ul.social {
         font-size: 1em;
     }
 
-    .about {
+    /*.about {
         padding: 8em 0 0;
-    }
+    }*/
 
     h5.m_4 {
         font-size: 6em;
@@ -767,8 +764,8 @@ ul.social {
     }
 
     .banner-wrap span {
-        width: 240px;
-        height: 65px;
+        width: 150px;
+        height: 100px;
         background-size: 104%;
     }
 
@@ -840,7 +837,7 @@ ul.social {
     .banner-wrap {
         width: 50%;
         padding: 1em 0;
-        border: 5px solid #fff;
+        border: 5px solid #CC9900;
     }
 
         .banner-wrap h1, .banner-wrap h2 {
@@ -848,8 +845,8 @@ ul.social {
         }
 
         .banner-wrap span {
-            width: 210px;
-            height: 60px;
+            width: 150px;
+            height: 100px;
             background-size: 104%;
         }
 
@@ -913,8 +910,8 @@ ul.social {
     }
 
         .banner-wrap span {
-            width: 160px;
-            height: 43px;
+            width: 100px;
+            height: 70px;
             background-size: 104%;
         }
 
@@ -988,8 +985,8 @@ ul.social li a i.pin {
 }
 
 .navbar-default {
-  background-color: #291f19;
-  border-color: #291f19;
+    background-color: #291f19;
+    border-color: #291f19;
 }
 
 .navbar {
@@ -1005,13 +1002,70 @@ ul.social li a i.pin {
 .btn-success:active,
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
-  color: #CC9900;
-  background-color: #CC9900;
-  border-color: #CC9900;
+    color: #CC9900;
+    background-color: #CC9900;
+    border-color: #CC9900;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: rgb(254, 254, 254);
-  background-color: transparent;
+    color: rgb(254, 254, 254);
+    background-color: transparent;
+}
+
+.col-md-4 {
+    padding: 0;
+    margin: 10px 0 10px 0;
+    border-color: azure;
+    border-style: groove;
+}
+
+.info1 {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 123%;
+    padding: 27px;
+    top: 1px;
+}
+
+@media (max-width:1200px) {
+    .info {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width:992px) {
+    .info1 {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        margin-top: 123%;
+        padding:11.9% !important;
+        /*padding: 114px;*/
+        top: 1px;
+    }
+}
+
+@media (max-width:550px) {
+    .info1 {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        margin-top: 123%;
+        padding:10.9% !important;
+        /*padding: 114px;*/
+        top: 1px;
+    }
+}
+@media (max-width:470px) {
+    .info1 {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        margin-top: 123%;
+        padding:9.9% !important;
+        /*padding: 114px;*/
+        top: 1px;
+    }
 }

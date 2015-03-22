@@ -61,7 +61,7 @@ cursor:pointer;
 <div class="about section" id="section-2">
     <div class="container" style="padding-bottom:50px;">
 
-        <div class="col-md-4 about_left">
+        <div class="col-md-3 about_left" style="border:none">
             <div class="magnify">
                 <img class="detailimg small" src="@(Model.ImagePaths.First())" alt="" />
                 <div class="large"></div>
@@ -76,72 +76,115 @@ cursor:pointer;
                 }
             </div>
         </div>
+        <br />
+        <div class="col-md-7 col-md-offset-1" style=" padding-left:17%;">
+            <table class="table">
+                <tr>
+                    <td><b>Name</b></td>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <td><b>Price</b></td>
+                    <td>@Model.Price</td>
+                </tr>
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>@Model.Price</td>
+                </tr>
+                <tr>
+                    <td><b>Fabric</b></td>
+                    <td>@Model.Material</td>
+                </tr>
+                <tr>
+                    <td><b>Note</b></td>
+                    <td>@Model.Instructions</td>
+                </tr>
+            </table>
+            <a href="/Catalogue/Index" class="btn1 btn-1 btn1-1b">Back</a>
 
-        <div class="col-md-6 about_right" style=" padding-left:17%;">
-            <ul class="list">
-                <li class="list1">
-                    <i></i><p class="detail">
-                        <span class="detail">
-                            <b>Name</b> :
-                        </span>@Model.Name
-                    </p>
-                    <div class="clearfix"> </div>
-                </li>
-                <li class="list1">
-                    <i> </i><p class="detail">
-                        <span class="detail">
-                            <b>Price</b> :
-                        </span><span>@((int)Model.Price) $</span>
-                    </p>
-                    <div class="clearfix"> </div>
-                </li>
-                <li class="list1">
-                    <i> </i><p class="detail">
-                                <span class="detail"><b>Size</b> :</span>
-                        @Model.Size
-                    </p>
-                    <div class="clearfix"></div>
-                </li>
-                <li class="list1">
-                    <i> </i>
-                    <p class="detail">
-                        <span class="detail"><b>Fabric</b> :</span>
-                        @Model.Material
-                    </p>
-                    <div class="clearfix"> </div>
-                </li>
-                <li class="list1">
-                    <i> </i><p class="detail">
-                        <span class="detail">
-                            <b>Note</b> :
-                        </span>@Model.Instructions
-                    </p>
-                    <div class="clearfix"> </div>
-                </li>
-                <li class="list1 last">
-                    <a href="/Catalogue/Index" class="btn1 btn-1 btn1-1b">Back</a>
+            <a class="popup-with-zoom-anim btn1 btn-1 btn1-1b" href="#small-dialog1">I want this</a>
+            <div id="small-dialog1" class="mfp-hide">
+                <div class="pop_up1">
+                    <h3>Continue with PayPal</h3>
+                    <p>User the well known and secure PayPal payment service until we implement another method for paying.</p>
+                    <div class="paypal">
+                        <form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="business" value="shirin.vakhidova@gmail.com">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="item_name" value="@Model.Name">
+                            <input type="hidden" name="amount" value="@Model.Price">
+                            <input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-md-7 col-md-offset-2" style=" padding-left:17%;">
+                <ul class="list">
+                    <li class="list1">
+                        <i></i><p class="detail">
+                            <span class="detail">
+                                <b>Name</b> :
+                            </span>@Model.Name
+                        </p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1">
+                        <i> </i><p class="detail">
+                            <span class="detail">
+                                <b>Price</b> :
+                            </span><span>@((int)Model.Price) $</span>
+                        </p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1">
+                        <i> </i><p class="detail">
+                                    <span class="detail"><b>Size</b> :</span>
+                            @Model.Size
+                        </p>
+                        <div class="clearfix"></div>
+                    </li>
+                    <li class="list1">
+                        <i> </i>
+                        <p class="detail">
+                            <span class="detail"><b>Fabric</b> :</span>
+                            @Model.Material
+                        </p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1">
+                        <i> </i><p class="detail">
+                            <span class="detail">
+                                <b>Note</b> :
+                            </span>@Model.Instructions
+                        </p>
+                        <div class="clearfix"> </div>
+                    </li>
+                    <li class="list1 last">
+                        <a href="/Catalogue/Index" class="btn1 btn-1 btn1-1b">Back</a>
 
-                    <a class="popup-with-zoom-anim btn1 btn-1 btn1-1b" href="#small-dialog1">I want this</a>
-                    <div id="small-dialog1" class="mfp-hide">
-                        <div class="pop_up1">
-                            <h3>Continue with PayPal</h3>
-                            <p>User the well known and secure PayPal payment service until we implement another method for paying.</p>
-                            <div class="paypal">
-                                <form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-                                    <input type="hidden" name="cmd" value="_xclick">
-                                    <input type="hidden" name="business" value="shirin.vakhidova@gmail.com">
-                                    <input type="hidden" name="currency_code" value="USD">
-                                    <input type="hidden" name="item_name" value="@Model.Name">
-                                    <input type="hidden" name="amount" value="@Model.Price">
-                                    <input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-                                </form>
+                        <a class="popup-with-zoom-anim btn1 btn-1 btn1-1b" href="#small-dialog1">I want this</a>
+                        <div id="small-dialog1" class="mfp-hide">
+                            <div class="pop_up1">
+                                <h3>Continue with PayPal</h3>
+                                <p>User the well known and secure PayPal payment service until we implement another method for paying.</p>
+                                <div class="paypal">
+                                    <form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+                                        <input type="hidden" name="cmd" value="_xclick">
+                                        <input type="hidden" name="business" value="shirin.vakhidova@gmail.com">
+                                        <input type="hidden" name="currency_code" value="USD">
+                                        <input type="hidden" name="item_name" value="@Model.Name">
+                                        <input type="hidden" name="amount" value="@Model.Price">
+                                        <input type="image" src="http://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </li>
-            </ul>
-        </div>
+                        <div class="clearfix"> </div>
+                    </li>
+                </ul>
+            </div>*@
     </div>
 </div>
 <script src="~/Scripts/magnify.js"></script>
