@@ -1041,7 +1041,7 @@ ul.social li a i.pin {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 123%;
-        padding:11.9% !important;
+        padding: 11.9% !important;
         /*padding: 114px;*/
         top: 1px;
     }
@@ -1053,19 +1053,29 @@ ul.social li a i.pin {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 123%;
-        padding:10.9% !important;
+        padding: 10.9% !important;
         /*padding: 114px;*/
         top: 1px;
     }
 }
+
 @media (max-width:470px) {
     .info1 {
         position: absolute;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
         margin-top: 123%;
-        padding:9.9% !important;
-        /*padding: 114px;*/
+        padding: 9.9% !important;
         top: 1px;
+    }
+}
+
+#myTable {
+    padding-left: 17%;
+}
+
+@media (max-width:991px) {
+    #myTable {
+        padding-left: 0;
     }
 }
