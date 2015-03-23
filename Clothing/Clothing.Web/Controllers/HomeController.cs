@@ -52,8 +52,8 @@ namespace Clothing.Web.Controllers
         public ActionResult SendEmail(ContactForm contactForm)
         {
             var mail = new MailMessage();
-            mail.To.Add("shirin.vakhidova@gmail.com");
-            mail.From = new MailAddress("psymilan99@gmail.com", contactForm.Name, System.Text.Encoding.UTF8);
+            mail.To.Add("info@shirinvahidi.com");
+            mail.From = new MailAddress("info@shirinvahidi.com", contactForm.Name, System.Text.Encoding.UTF8);
             mail.Subject = contactForm.Name + " - " + contactForm.Email + " wrote you on SHIRIN-VAHIDI.COM";
             mail.SubjectEncoding = System.Text.Encoding.UTF8;
             var body = "Email: " + contactForm.Email + "<br />" + contactForm.Message;
@@ -64,7 +64,7 @@ namespace Clothing.Web.Controllers
 
             var client = new SmtpClient
             {
-                Credentials = new NetworkCredential("psymilan99@gmail.com", "milan1989"),
+                Credentials = new NetworkCredential("info@shirinvahidi.com", "NewYorktime77"),
                 Port = 587,
                 Host = "smtp.gmail.com",
                 EnableSsl = true
