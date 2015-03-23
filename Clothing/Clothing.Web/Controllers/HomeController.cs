@@ -64,7 +64,7 @@ namespace Clothing.Web.Controllers
 
             var client = new SmtpClient
             {
-                Credentials = new NetworkCredential("psymilan99@gmail.com", ""),
+                Credentials = new NetworkCredential("psymilan99@gmail.com", "milan1989"),
                 Port = 587,
                 Host = "smtp.gmail.com",
                 EnableSsl = true
